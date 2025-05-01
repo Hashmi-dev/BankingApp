@@ -1,12 +1,11 @@
 package com.hashmi.bankingapp;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 // @Entity tell JPA to map the class into a table named User
 @Entity
+// Name the table as users to avoid the reserved word `user`
+@Table(name = "users")
 public class User {
     // @Id marks this field as the primary key for unique users
     @Id
