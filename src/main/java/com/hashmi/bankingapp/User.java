@@ -17,6 +17,9 @@ public class User {
     String email;
     String password;
 
+    @OneToMany (mappedBy = "User", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Account account;
+
     // No arg constructor for JPA
     public User() {}
 
