@@ -6,24 +6,33 @@ import java.math.BigDecimal;
 import java.sql.Time;
 import java.util.Date;
 
+// Transaction table made using @entity
 @Entity
 public class Transactions {
 
+    // The table has an ENUM for the two way money goes
+    // it comes in or it goes out
+    // still need to figure out what enum is and how it would make
+    // an integer or into a format i could read
     public enum TransactionType {
         INCOMING,
         OUTGOING
     }
 
+    // ids are auto generated as usual
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
 
+    // dont exactly know why i am supposed to be doing this so i will dig into it
     @Temporal(TemporalType.TIMESTAMP)
     Date timestamp;
 
+    // made it string so it can read
     @Enumerated(EnumType.STRING)
     private TransactionType type;
 
+    // again no clue need to do more digging
     @Column(precision = 19, scale = 4)
     BigDecimal amount;
 
